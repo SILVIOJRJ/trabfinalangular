@@ -4,8 +4,10 @@ import { ListagemComponent } from './components/listagem/listagem.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 
 const routes: Routes = [
-  { path: '', component: ListagemComponent },
+  { path: '', redirectTo: '/listagem', pathMatch: 'full' },
+  { path: 'listagem', component: ListagemComponent },
   { path: 'cadastro', component: CadastroComponent }
+
 ];
 
 @NgModule({

@@ -45,7 +45,18 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSelectModule,       // Adicionado para o select
     MatCheckboxModule,     // Adicionado para o checkbox
     MatRadioModule,        // Adicionado para o radio button
-    MatSnackBarModule      // Adicionado para as mensagens
+    MatSnackBarModule,   
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    FormsModule,
+       // Adicionado para as mensagens
   ],
   providers: [],
   bootstrap: [AppComponent]

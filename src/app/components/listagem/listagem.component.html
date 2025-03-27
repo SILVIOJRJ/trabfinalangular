@@ -1,28 +1,29 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Listagem</mat-card-title>
-    <button mat-icon-button routerLink="/cadastro">
-      <mat-icon>add</mat-icon>
-    </button>
-  </mat-card-header>
-  <mat-card-content>
-    <table mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="nome">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let item"> {{item.nome}} </td>
-      </ng-container>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Lista de Clientes</mat-card-title>
+      <button mat-icon-button routerLink="/cadastro">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-header>
 
-      <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
-        <td mat-cell *matCellDef="let item">
-          <button mat-icon-button (click)="editarItem(item)">
-            <mat-icon>edit</mat-icon>
-          </button>
-        </td>
-      </ng-container>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource">
+        <!-- Coluna Nome -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let item"> {{item.nome}} </td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </mat-card-content>
-</mat-card>
+        <!-- Coluna Idade -->
+        <ng-container matColumnDef="idade">
+          <th mat-header-cell *matHeaderCellDef> Idade </th>
+          <td mat-cell *matCellDef="let item"> {{item.idade}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

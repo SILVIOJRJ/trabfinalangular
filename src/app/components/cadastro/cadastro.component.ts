@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -8,20 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent {
-  item = {
-    nome: '',
-    tipo: '',
-    ativo: false,
-    opcao: 'Opção 1'
-  };
+  formulario = this.fb.group({
+    nome: ['', Validators.required],
+    idade: [''],
+    genero: ['masculino'],
+    ativo: [true]
+  });
 
-  constructor(private snackBar: MatSnackBar, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   salvar() {
-    console.log('Dados salvos:', this.item);
-    this.snackBar.open('Cadastro salvo com sucesso!', 'Fechar', {
-      duration: 3000
-    });
-    this.router.navigate(['/']);
+    if (this.formulario.valid) {
+      console.log('Dados salvos:', this.formulario.value);
+      this.snackBar.open('Cliente salvo com sucesso!', 'Fechar', {
+        duration: 3000
+      });
+      this.router.navigate(['/listagem']);
+    }
+  }
+
+  cancelar() {
+    this.router.navigate(['/listagem']);
   }
 }
