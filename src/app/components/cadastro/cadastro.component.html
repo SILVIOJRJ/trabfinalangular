@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cadastro</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="salvar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="item.nome" name="nome" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="item.tipo" name="tipo" required>
+          <mat-option value="Tipo A">Tipo A</mat-option>
+          <mat-option value="Tipo B">Tipo B</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox [(ngModel)]="item.ativo" name="ativo">Ativo</mat-checkbox>
+
+      <mat-radio-group [(ngModel)]="item.opcao" name="opcao">
+        <mat-radio-button value="Opção 1">Opção 1</mat-radio-button>
+        <mat-radio-button value="Opção 2">Opção 2</mat-radio-button>
+      </mat-radio-group>
+
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit">Salvar</button>
+        <button mat-raised-button color="warn" type="button" (click)="router.navigate(['/'])">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
